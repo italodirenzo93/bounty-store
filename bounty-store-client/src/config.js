@@ -1,0 +1,1 @@
+export const apiEndpoint = "http://localhost:58422/api/bounty";
