@@ -1,21 +1,20 @@
 <template>
 	<div id="app">
-		<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-			<div class="navbar-brand">
-				<a class="navbar-item" href="/">
-					<img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-				</a>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<router-link to="/" class="navbar-brand">The Bounty Store</router-link>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-				<div class="navbar-burger">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-			</div>
-
-			<div class="navbar-start">
-				<router-link to="/" class="navbar-item">Home</router-link>
-				<router-link to="/bounties" class="navbar-item">Bounties</router-link>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<router-link to="/bounties" class="nav-link" href="#">Bounty List</router-link>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">Post Bounty</a>
+					</li>
+				</ul>
 			</div>
 		</nav>
 
@@ -24,13 +23,7 @@
 </template>
 
 <script>
-import 'bulma/css/bulma.css';
-
 export default {
 
 };
 </script>
-
-<style>
-
-</style>

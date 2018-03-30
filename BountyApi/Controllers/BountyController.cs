@@ -17,19 +17,6 @@ namespace BountyApi.Controllers
         public BountyController(BountyContext context)
         {
             _context = context;
-
-            if (_context.Bounties.Count() == 0)
-            {
-                _context.Bounties.Add(new Bounty
-                {
-                    Name = "Filthy Hands Floyd",
-                    Description = "He's green and he's pissed!",
-                    AliveReward = 900,
-                    DeadReward = 300,
-                    Captured = false
-                });
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]

@@ -1,5 +1,5 @@
 <template>
-    <h1>Hello World!</h1>
+    <h1 class="display-1 text-center">The Bounty Store</h1>
 </template>
 
 <script>

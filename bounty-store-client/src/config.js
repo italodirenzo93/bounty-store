@@ -1,1 +1,1 @@
-export const apiEndpoint = "http://localhost:58422/api/bounty";
+export const apiEndpoint = "http://localhost:5000/api/bounty";
