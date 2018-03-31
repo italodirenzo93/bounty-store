@@ -9,10 +9,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<router-link to="/bounties" class="nav-link" href="#">Bounty List</router-link>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">Post Bounty</a>
+						<router-link to="/new" class="nav-link">Post Bounty</router-link>
 					</li>
 				</ul>
 			</div>

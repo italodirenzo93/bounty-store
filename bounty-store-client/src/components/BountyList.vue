@@ -3,7 +3,7 @@
         <h1 class="display-4 text-center">Available Bounties</h1>
         <div class="row">
             <div class="col-12 col-sm-6 col-md-3" v-for="bounty in bounties" :key="bounty.id">
-                <bounty :bounty="bounty" @claimed="claimBounty"></bounty>
+                <bounty :bounty="bounty" @claimed="claimBounty" @deleted="deleteBounty"></bounty>
             </div>
         </div>
     </div>
@@ -30,8 +30,14 @@ export default {
     methods: {
         claimBounty(bounty) {
             bounty.captured = true;
-            axios.put(apiEndpoint + '/' + bounty.id, bounty)
-                .catch(() => bonuty.captured = false);
+        },
+        deleteBounty(id) {
+            let index = this.bounties.findIndex(b => b.id == id);
+            if (index != -1) {
+                this.bounties.splice(index, 1);
+            } else {
+                console.log('index of deleted bounty was -1');
+            }
         }
     }
 };
