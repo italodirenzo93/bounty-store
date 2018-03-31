@@ -24,3 +24,14 @@ export default {
 
 };
 </script>
+
+<style>
+body {
+	font-family: "Raleway", sans-serif;
+	background-image: url("assets/tileable_wood_texture.png");
+	background-repeat: repeat;
+}
+h1,h2,h3,h4,h5,h6,.navbar-brand {
+	font-family: "Smokum", serif;
+}
+</style>

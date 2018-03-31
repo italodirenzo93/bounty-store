@@ -1,6 +1,6 @@
 <template>    
     <div class="container">
-        <h1 class="display-4 text-center">Available Bounties</h1>
+        <h1 class="display-3 text-center">Available Bounties</h1>
         <div class="row">
             <div class="col-12 col-sm-6 col-md-3" v-for="bounty in bounties" :key="bounty.id">
                 <bounty :bounty="bounty" @claimed="claimBounty" @deleted="deleteBounty"></bounty>

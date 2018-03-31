@@ -1,9 +1,9 @@
 <template>
     <div class="card bounty">
         <div class="card-body">
-            <h5 class="card-title">{{bounty.name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Alive: <span class="text-success">${{bounty.aliveReward}}</span></h6>
-            <h6 class="card-subtitle mb-2 text-muted">Dead: <span class="text-danger">${{bounty.deadReward}}</span></h6>
+            <h4 class="card-title">{{bounty.name}}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">Alive: <span class="text-success">${{bounty.aliveReward}}</span></h5>
+            <h5 class="card-subtitle mb-2 text-muted">Dead: <span class="text-danger">${{bounty.deadReward}}</span></h5>
             <p class="card-text">{{bounty.description}}</p>
 
             <a v-if="!bounty.captured" href="#" class="card-link" @click.prevent="claimReward">Claim</a>
@@ -29,6 +29,7 @@ export default {
     },
     methods: {
         claimReward() {
+            this.bounty.captured = true;
             axios.put(apiEndpoint + '/' + this.bounty.id, this.bounty).then(() => this.$emit('claimed', this.bounty));
         },
         deleteBounty() {
@@ -37,3 +38,11 @@ export default {
     }
 };
 </script>
+
+<style>
+.bounty {
+    background: url("../assets/paper_1.png");
+    border-radius: 0;
+    box-shadow: 5px 5px 5px;
+}
+</style>

@@ -10,7 +10,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">$</span>
                 </div>
-                <input v-model="bounty.aliveReward" required class="form-control" type="number" step="0.1" name="aliveReward" />
+                <input v-model="bounty.aliveReward" required class="form-control" type="number" step="0.01" name="aliveReward" />
             </div>
         </div>
         <div class="form-group">
@@ -19,7 +19,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">$</span>
                 </div>
-                <input v-model="bounty.deadReward" required class="form-control" type="number" step="0.1" name="deadReward" />
+                <input v-model="bounty.deadReward" required class="form-control" type="number" step="0.01" name="deadReward" />
             </div>
         </div>
         <div class="form-group">

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="display-4 text-center">New Bounty</h1>
+        <h1 class="display-3 text-center">New Bounty</h1>
         <bounty-form :bounty="bounty" @submit="createBounty" @cancel="goBack"></bounty-form>
         <div v-show="success != null" class="text-center">
             <p v-show="success == true" class="text-success">Your bounty has been posted!</p>
