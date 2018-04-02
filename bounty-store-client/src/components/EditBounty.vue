@@ -1,11 +1,7 @@
 <template>
     <div class="container">
         <h1 class="display-3 text-center">Edit Bounty</h1>
-        <bounty-form :bounty="bounty" @submit="updateBounty" @cancel="goBack"></bounty-form>
-        <div v-show="success != null" class="text-center">
-            <p v-show="success == true" class="text-success">Bounty has been updated!</p>
-            <p v-show="success == false" class="text-danger">Unable to update bounty.</p>
-        </div>
+        <bounty-form :bounty="bounty" :errors="errors" @submit="updateBounty" @cancel="goBack"></bounty-form>
     </div>
 </template>
 
@@ -21,7 +17,7 @@ export default {
     data() {
         return {
             bounty: {},
-            success: null
+            errors: {}
         };
     },
     created() {
@@ -35,7 +31,9 @@ export default {
             // PUT request to API
             axios.put(apiEndpoint + '/' + this.$route.params.id, bounty)
                 .then(() => this.$router.push({name: 'bounties'}))
-                .catch(() => this.success = false);
+                .catch((err) => {
+                    this.errors = err.response.data;
+                });
         },
         goBack() {
             this.$router.push({name: 'bounties'});

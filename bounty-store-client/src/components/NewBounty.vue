@@ -1,11 +1,8 @@
 <template>
     <div class="container">
         <h1 class="display-3 text-center">New Bounty</h1>
-        <bounty-form :bounty="bounty" @submit="createBounty" @cancel="goBack"></bounty-form>
-        <div v-show="success != null" class="text-center">
-            <p v-show="success == true" class="text-success">Your bounty has been posted!</p>
-            <p v-show="success == false" class="text-danger">Unable to post bounty.</p>
-        </div>
+        <bounty-form :bounty="bounty" :errors="errors" @submit="createBounty" @cancel="goBack"></bounty-form>
+        <p v-show="success" class="text-success text-center">Your bounty has been posted!</p>
     </div>
 </template>
 
@@ -20,8 +17,9 @@ export default {
     },
     data() {
         return {
-            success: null,
-            bounty: {}
+            bounty: {},
+            errors: {},
+            success: null
         };
     },
     methods: {
@@ -31,12 +29,14 @@ export default {
                     // Show success message
                     this.success = true;
                     this.bounty = {};
+                    this.errors = {};
                     // Hide it after 4 seconds
                     setTimeout(() => this.success = null, 4000);
                 })
-                .catch(() => {
+                .catch((err) => {
                     // Show error message
                     this.success = false;
+                    this.errors = err.response.data;
                 });
         },
         goBack() {
